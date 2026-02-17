@@ -9,7 +9,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/anuragsingh7011/bigbasket-app.git
+          uri: https://github.com/anuragsingh7011/microservices-sys.git
           default-label: main
           search-paths: /config-data
           clone-on-start: true
