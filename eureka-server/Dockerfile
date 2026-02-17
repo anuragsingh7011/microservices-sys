@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17.0.2-jdk 
+FROM openjdk:17.0.2-jdk-slim 
 WORKDIR /app 
 COPY target/eureka-server-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8761 
