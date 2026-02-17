@@ -1,0 +1,36 @@
+pipeline {
+agent any 
+stages { 
+stage('Checkout Code') { 
+steps { 
+git branch: 'main', 
+url: 'https://github.com/anuragsingh7011/bigbasket-app.git' 
+} 
+} 
+stage('Build Application') { 
+steps { 
+dir('eureka-server') { 
+bat 'mvn clean package -DskipTests' 
+} 
+} 
+} 
+stage('Build Docker Image') { 
+steps { 
+dir('eureka-server') { 
+bat 'docker build -t eureka-server .' 
+} 
+} 
+} 
+stage('Stop Old Container') { 
+steps { 
+bat 'docker stop eureka-container || exit 0' 
+bat 'docker rm eureka-container || exit 0' 
+} 
+} 
+stage('Run Docker Container') { 
+steps { 
+bat 'docker run -d -p 8761:8761 --name eureka-container eureka-server' 
+} 
+} 
+} 
+}
