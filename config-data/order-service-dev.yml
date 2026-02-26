@@ -1,9 +1,9 @@
 spring:
   application:
-    name: product-service
+    name: order-service
 
   datasource:
-    url: jdbc:mysql://localhost:3306/productdb_dev   # changed from mysql → localhost
+    url: jdbc:mysql://localhost:3306/orderdb_dev   # changed from mysql → localhost
     username: root
     password: Anurag@29
     driver-class-name: com.mysql.cj.jdbc.Driver
