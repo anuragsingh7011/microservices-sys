@@ -13,12 +13,13 @@ import com.product.entity.Product;
 import com.product.service.ProductService;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
 	
 	@Autowired 
 	ProductService productService;
-	@PostMapping("/")
+	
+	@PostMapping("")
 	public Product addProduct(@RequestBody Product product) {
 		return  productService.saveProduct(product);
 	}
